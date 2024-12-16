@@ -45,11 +45,12 @@ async function makeRFunctionCallExplicit() {
             {
             # Attempt to read the file, process it,
             # and write the updated content
-            content <-
+            formalistContent <-
                 readLines('${formalistPath}', encoding = 'UTF-8', warn = FALSE) |>
                 paste0(collapse = '\\n')
-            updated_content <- pedant::add_double_colons(content)
-            writeLines(enc2utf8(updated_content), con = '${formalistPath}')
+            formalistContent <- pedant::add_double_colons(formalistContent)
+            writeLines(enc2utf8(formalistContent), con = '${formalistPath}')
+            rm(formalistContent)
             },
             error = function(e) {
             # If an error occurs during the formating process,
