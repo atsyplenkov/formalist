@@ -1,0 +1,72 @@
+{
+  "name": "formalist",
+  "displayName": "formalist",
+  "description": "Make R function calls excplicit",
+  "version": "0.1.0",
+  "publisher": "atsyplenkov",
+  "license": "MIT",
+  "pricing": "Free",
+  "sponsor": {
+    "url": "https://github.com/sponsors/atsyplenkov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atsyplenkov/formalist"
+  },
+  "bugs": {
+    "url": "https://github.com/atsyplenkov/formalist/issues",
+    "email": "atsyplenkov@fastmail.com"
+  },
+  "engines": {
+    "positron": ">=2025.01.0",
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "formalist.makeRFunctionCallExplicit",
+        "title": "Make R Function Call Explicit",
+        "category": "Formalist"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection && config.formalist.showContextMenu && editorLangId == 'r'",
+          "command": "formalist.makeRFunctionCallExplicit",
+          "group": "navigation@1"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "Formalist Configuration",
+      "properties": {
+        "formalist.showContextMenu": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the 'Make R Function Call Explicit' command in the editor context menu."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "yarn run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.93.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0"
+  }
+}
