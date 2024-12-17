@@ -2,13 +2,14 @@
   "name": "formalist",
   "displayName": "formalist",
   "description": "Make R function calls excplicit",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "atsyplenkov",
   "license": "MIT",
   "pricing": "Free",
   "sponsor": {
     "url": "https://github.com/sponsors/atsyplenkov"
   },
+  "icon": "assets/logo.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/atsyplenkov/formalist"
@@ -22,7 +23,12 @@
     "vscode": "^1.93.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Snippets"
+  ],
+  "keywords": [
+    "r",
+    "keybindings"
   ],
   "activationEvents": [],
   "main": "./extension.js",

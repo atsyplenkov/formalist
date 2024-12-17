@@ -4,6 +4,11 @@ All notable changes to the "formalist" extension will be documented in this file
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [0.1.0] -- 2024-12-18
+
+- Added logo
+- Published on Open VSX Registry
+
+## [0.0.1] -- 2024-12-16
 
 - Initial release
