@@ -4,8 +4,9 @@
 
 # Formalist — Positron Extension
 
-> ⚠ The extension is designed to work ONLY in
-> [Positron](https://github.com/posit-dev/positron) IDE starting from version 2025.01.0, as it heavily depends
+> [!IMPORTANT]
+> The extension is designed to work **ONLY** in
+> [Positron](https://github.com/posit-dev/positron) IDE starting from version `2025.01.0`, as it heavily depends
 > on the Positron API.
 
 This is an extension to help add explicit R function calls instead of implicit ones using the [`{pedant}`](https://github.com/wurli/pedant) R package. In other words, it checks the currently attached packages, i.e., the ones already loaded using `library()`, and transforms R function calls like `select(mtcars, mpg, cyl)` to `dplyr::select(mtcars, mpg, cyl)`.
