@@ -26,8 +26,11 @@ The extension is published on the [Open VSX Registry](https://open-vsx.org/exten
 Alternatively, you can install the latest version from the [Releases](https://github.com/atsyplenkov/formalist/releases/) page. Download the latest `.vsix` file and install it as described [here](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix).
 
 
+# Questions and Feature Requests
+
+There's a lot going on with the development of new features in Formalst. If you have any questions or something is not working, feel free to [open an issue](https://github.com/atsyplenkov/formalist/issues) or start a conversation on [BlueSky](https://bsky.app/profile/anatolii.nz).
+
+
 # Contributions
 
-Contributions are welcome! If you'd like to contribute, please, fork, submit a
-PR and I'll merge it.
-
+Contributions are welcome! If you'd like to contribute, please, fork, submit a PR and I'll merge it.
