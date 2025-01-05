@@ -41,6 +41,11 @@ The extension is published on the [Open VSX Registry](https://open-vsx.org/exten
 
 Alternatively, you can install the latest version from the [Releases](https://github.com/atsyplenkov/formalist/releases/) page. Download the latest `.vsix` file and install it as described [here](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix).
 
+## Dependencies
+
+`Formalist` depends on two R packages [`{pedant}`](https://github.com/wurli/pedant) and [`{flint}`](https://github.com/etiennebacher/flint). If your current environment is lacking either of them, you will be prompted to install them.
+
+![](https://github.com/atsyplenkov/formalist/raw/master/assets/formalist_install.gif)
 
 # Questions and Feature Requests
 
