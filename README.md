@@ -22,7 +22,7 @@
 
 ## Fix Lints
 
-Another key feature of `Formalist` is its ability to detect and correct lints in your R code. The linting process is performed locally using the [`{flint}`](https://github.com/etiennebacher/flint) package, which must be installed in your R environment. If the package is not installed, Formalist will prompt you to install it.
+Another key feature of `Formalist` is its ability to detect and correct lints in your R code. The linting process is performed locally using the [`{flint}`](https://github.com/etiennebacher/flint) package, which must be installed in your R environment.
 
 ![](https://github.com/atsyplenkov/formalist/raw/master/assets/formalist_flint.gif)
 
