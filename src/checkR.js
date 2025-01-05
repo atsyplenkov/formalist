@@ -75,4 +75,50 @@ async function checkR() {
     await fs.unlink(tempFilePath);
 }
 
-module.exports = { checkR }; 
+async function checkFlint() {
+    // Create a temporary file path
+    const id = randomUUID();
+    const tempFilePath = path.join(os.tmpdir(), `flint_${id}.txt`);
+    const normalizedPath = tempFilePath.replace(/\\/g, "/");
+
+    // Prepare the R commands
+    const r_check_command = `writeLines(as.character(nchar(system.file(package = "flint")) != 0), con = '${normalizedPath}')`;
+    const flint_install_command = 'install.packages("flint", repos = c("https://etiennebacher.r-universe.dev", "https://cloud.r-project.org"))';
+
+    // Run R commands
+    await positron.runtime.executeCode(
+        'r', r_check_command, false, false,
+        positron.RuntimeCodeExecutionMode.Silent
+    );
+    // Write results to a tempfile
+    console.log(`Wrote results to ${tempFilePath}`);
+
+    // Wait and read the output
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    // Read the output from the temporary file
+    const output = await fs.readFile(tempFilePath, { encoding: 'utf8' });
+    const flint = output.split('\n')[0];
+    console.log('Flint is installed? -- ' + flint);
+
+    if (flint.includes('FALSE')) {
+        // Offer to install flint
+        const install_flint = await positron.window.showSimpleModalDialogPrompt(
+            'Formalist extension is missing {flint} R package',
+            '{flint} R package is required. Do you want to install {flint}?',
+            'Yes',
+            'No'
+        );
+
+        if (install_flint) {
+            await positron.runtime.executeCode(
+                'r', flint_install_command, false, false
+            );
+        }
+    }
+
+    // Delete the temporary file
+    await fs.unlink(tempFilePath);
+}
+
+module.exports = { checkR, checkFlint }; 

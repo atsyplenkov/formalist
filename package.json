@@ -1,8 +1,8 @@
 {
   "name": "formalist",
   "displayName": "formalist",
-  "description": "Make R function calls excplicit",
-  "version": "0.1.0",
+  "description": "Make R code properly formatted",
+  "version": "0.2.0",
   "publisher": "atsyplenkov",
   "license": "MIT",
   "pricing": "Free",
@@ -38,17 +38,36 @@
         "command": "formalist.makeRFunctionCallExplicit",
         "title": "Make R Function Call Explicit",
         "category": "Formalist"
+      },
+      {
+        "command": "formalist.fixLint",
+        "title": "Fix All Lints",
+        "category": "Formalist"
       }
     ],
     "menus": {
       "editor/context": [
         {
           "when": "editorHasSelection && config.formalist.showContextMenu && editorLangId == 'r'",
-          "command": "formalist.makeRFunctionCallExplicit",
+          "submenu": "formalist.submenu",
           "group": "navigation@1"
+        }
+      ],
+      "formalist.submenu": [
+        {
+          "command": "formalist.makeRFunctionCallExplicit"
+        },
+        {
+          "command": "formalist.fixLint"
         }
       ]
     },
+    "submenus": [
+      {
+        "id": "formalist.submenu",
+        "label": "Formalist"
+      }
+    ],
     "configuration": {
       "type": "object",
       "title": "Formalist Configuration",
@@ -56,7 +75,7 @@
         "formalist.showContextMenu": {
           "type": "boolean",
           "default": true,
-          "description": "Show the 'Make R Function Call Explicit' command in the editor context menu."
+          "description": "Show Formalist commands in the editor context (right-click) menu."
         }
       }
     }

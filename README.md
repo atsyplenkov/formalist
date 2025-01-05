@@ -9,9 +9,25 @@
 > [Positron](https://github.com/posit-dev/positron) IDE starting from version `2025.01.0`, as it heavily depends
 > on the Positron API.
 
-This is an extension to help add explicit R function calls instead of implicit ones using the [`{pedant}`](https://github.com/wurli/pedant) R package. In other words, it checks the currently attached packages, i.e., the ones already loaded using `library()`, and transforms R function calls like `select(mtcars, mpg, cyl)` to `dplyr::select(mtcars, mpg, cyl)`.
+# Features
+
+> [!NOTE]
+> All features work on selected text. If no text is selected, you'll receive a notification to make a selection first.
+
+## Make R Function Calls Explicit
+
+`Formalist` can make R function calls explicit, instead of implicit ones, using the [`{pedant}`](https://github.com/wurli/pedant) R package. In other words, it checks the currently attached packages, i.e., the ones already loaded using `library()`, and transforms R function calls like `select(mtcars, mpg, cyl)` into `dplyr::select(mtcars, mpg, cyl)`.
 
 ![](https://github.com/atsyplenkov/formalist/raw/master/assets/formalist_demo.gif)
+
+## Fix Lints
+
+Another key feature of `Formalist` is its ability to detect and correct lints in your R code. The linting process is performed locally using the [`{flint}`](https://github.com/etiennebacher/flint) package, which must be installed in your R environment. If the package is not installed, Formalist will prompt you to install it.
+
+![](https://github.com/atsyplenkov/formalist/raw/master/assets/formalist_flint.gif)
+
+> [!TIP]
+> The `{flint}` R package installs in your current environment, so, you can setup your custom lint rules by running `flint::setup_flint()` in your R console (read more [here](https://flint.etiennebacher.com/articles/adding_rules)).
 
 # Installation
 
@@ -21,14 +37,14 @@ The extension is published on the [Open VSX Registry](https://open-vsx.org/exten
 
 2) Inside Positron, go to the extensions view either by executing the `View: Show Extensions` command (click View -> Command Palette...) or by clicking on the extension icon on the left side of the Positron window.
 
-3) In the extensions view, simply search for the term `formalist` in the marketplace search box, then select the extension named `Formalist` and click the install button.
+3) In the extensions view, simply search for the term `Formalist` in the marketplace search box, then select the extension named `Formalist` and click the install button.
 
 Alternatively, you can install the latest version from the [Releases](https://github.com/atsyplenkov/formalist/releases/) page. Download the latest `.vsix` file and install it as described [here](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix).
 
 
 # Questions and Feature Requests
 
-There's a lot going on with the development of new features in Formalst. If you have any questions or something is not working, feel free to [open an issue](https://github.com/atsyplenkov/formalist/issues) or start a conversation on [BlueSky](https://bsky.app/profile/anatolii.nz).
+There's a lot going on with the development of new features in `Formalst`. If you have any questions or something is not working, feel free to [open an issue](https://github.com/atsyplenkov/formalist/issues) or start a conversation on [BlueSky](https://bsky.app/profile/anatolii.nz).
 
 
 # Contributions
