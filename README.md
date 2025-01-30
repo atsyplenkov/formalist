@@ -35,7 +35,7 @@ The extension is published on the [Open VSX Registry](https://open-vsx.org/exten
 
 1) Start the [Positron](https://github.com/posit-dev/positron).
 
-2) Inside Positron, go to the extensions view either by executing the `View: Show Extensions` command (click View -> Command Palette...) or by clicking on the extension icon on the left side of the Positron window.
+2) Inside Positron, go to the extensions view either by executing the `View: Show Extensions` command (click `View` -> `Command Palette...`) or by clicking on the extension icon on the left side of the Positron window.
 
 3) In the extensions view, simply search for the term `Formalist` in the marketplace search box, then select the extension named `Formalist` and click the install button.
 
