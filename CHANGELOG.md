@@ -4,6 +4,10 @@ All notable changes to the "formalist" extension will be documented in this file
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.2.2] -- 2025-04-6
+
+- Update R dependencies (fix #5) 
+
 ## [0.2.0] -- 2025-01-05
 
 - New feature -- added `Fix Lint` function
