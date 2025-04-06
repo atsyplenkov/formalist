@@ -4,10 +4,10 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { randomUUID } = require('crypto');
-const { checkR, checkFlint } = require('./checkR');
+const { checkR, checkFlir } = require('./checkR');
 
 // Error constants
-const FLINT_ERRORS = {
+const flir_ERRORS = {
     WRITE_FAILED: 'Error_002',
     PACKAGE_MISSING: 'Error_001'
 };
@@ -15,7 +15,7 @@ const FLINT_ERRORS = {
 // Utility function for temporary file operations
 async function withTempFile(content, operation) {
     const tempdir = os.tmpdir();
-    const filename = `flint-${randomUUID()}.R`;
+    const filename = `flir-${randomUUID()}.R`;
     const filepath = path.join(tempdir, filename).replace(/\\/g, '/');
 
     try {
@@ -33,14 +33,14 @@ async function withTempFile(content, operation) {
 function generateRCommand(filepath) {
     return `
     if (!file.exists('${filepath}')) {
-        writeLines('${FLINT_ERRORS.WRITE_FAILED}', con = '${filepath}')
+        writeLines('${flir_ERRORS.WRITE_FAILED}', con = '${filepath}')
     } else {
         tryCatch(
             {
-                flint::fix('${filepath}')
+                flir::fix('${filepath}')
             },
             error = function(e) {
-                writeLines('${FLINT_ERRORS.PACKAGE_MISSING}', con = '${filepath}')
+                writeLines('${flir_ERRORS.PACKAGE_MISSING}', con = '${filepath}')
             },
             silent = TRUE
         )
@@ -49,7 +49,7 @@ function generateRCommand(filepath) {
 
 async function fixLint() {
     // Check if R is installed and offer to install it if not
-    await checkFlint();
+    await checkFlir();
 
     const editor = vscode.window.activeTextEditor;
     if (!editor) {
@@ -77,7 +77,7 @@ async function fixLint() {
 
             // Wait with timeout
             await Promise.race([
-                new Promise(resolve => setTimeout(resolve, 100)),
+                new Promise(resolve => setTimeout(resolve, 1000)),
                 new Promise((_, reject) =>
                     setTimeout(() => reject(new Error('R execution timed out')), 5000)
                 )
@@ -91,10 +91,10 @@ async function fixLint() {
             await editor.edit(editBuilder => {
                 editBuilder.replace(selection, formattedSource);
             });
-        } else if (formattedSource.startsWith(FLINT_ERRORS.WRITE_FAILED)) {
+        } else if (formattedSource.startsWith(flir_ERRORS.WRITE_FAILED)) {
             throw new Error("Failed to write selection to temporary file");
-        } else if (formattedSource.startsWith(FLINT_ERRORS.PACKAGE_MISSING)) {
-            throw new Error("The {flint} R package is required but not installed");
+        } else if (formattedSource.startsWith(flir_ERRORS.PACKAGE_MISSING)) {
+            throw new Error("The {flir} R package is required but not installed");
         }
 
     } catch (error) {

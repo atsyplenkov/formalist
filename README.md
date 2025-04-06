@@ -22,12 +22,12 @@
 
 ## Fix Lints
 
-Another key feature of `Formalist` is its ability to detect and correct lints in your R code. The linting process is performed locally using the [`{flint}`](https://github.com/etiennebacher/flint) package, which must be installed in your R environment.
+Another key feature of `Formalist` is its ability to detect and correct lints in your R code. The linting process is performed locally using the [`{flir}`](https://github.com/etiennebacher/flir) package, which must be installed in your R environment.
 
-![](https://github.com/atsyplenkov/formalist/raw/master/assets/formalist_flint.gif)
+![](https://github.com/atsyplenkov/formalist/raw/master/assets/formalist_flir.gif)
 
 > [!TIP]
-> The `{flint}` R package installs in your current environment, so, you can setup your custom lint rules by running `flint::setup_flint()` in your R console (read more [here](https://flint.etiennebacher.com/articles/adding_rules)).
+> The `{flir}` R package installs in your current environment, so, you can setup your custom lint rules by running `flir::setup_flir()` in your R console (read more [here](https://flir.etiennebacher.com/articles/adding_rules)).
 
 # Installation
 
@@ -43,7 +43,7 @@ Alternatively, you can install the latest version from the [Releases](https://gi
 
 ## Dependencies
 
-`Formalist` depends on two R packages [`{pedant}`](https://github.com/wurli/pedant) and [`{flint}`](https://github.com/etiennebacher/flint). If your current environment is lacking either of them, you will be prompted to install them.
+`Formalist` depends on two R packages [`{pedant}`](https://github.com/wurli/pedant) and [`{flir}`](https://github.com/etiennebacher/flir). If your current environment is lacking either of them, you will be prompted to install them.
 
 ![](https://github.com/atsyplenkov/formalist/raw/master/assets/formalist_install.gif)
 

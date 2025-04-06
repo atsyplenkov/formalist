@@ -75,15 +75,15 @@ async function checkR() {
     await fs.unlink(tempFilePath);
 }
 
-async function checkFlint() {
+async function checkFlir() {
     // Create a temporary file path
     const id = randomUUID();
-    const tempFilePath = path.join(os.tmpdir(), `flint_${id}.txt`);
+    const tempFilePath = path.join(os.tmpdir(), `flir_${id}.txt`);
     const normalizedPath = tempFilePath.replace(/\\/g, "/");
 
     // Prepare the R commands
-    const r_check_command = `writeLines(as.character(nchar(system.file(package = "flint")) != 0), con = '${normalizedPath}')`;
-    const flint_install_command = 'install.packages("flint", repos = c("https://etiennebacher.r-universe.dev", "https://cloud.r-project.org"))';
+    const r_check_command = `writeLines(as.character(nchar(system.file(package = "flir")) != 0), con = '${normalizedPath}')`;
+    const flir_install_command = 'install.packages("flir", repos = c("https://etiennebacher.r-universe.dev", "https://cloud.r-project.org"))';
 
     // Run R commands
     await positron.runtime.executeCode(
@@ -98,21 +98,21 @@ async function checkFlint() {
 
     // Read the output from the temporary file
     const output = await fs.readFile(tempFilePath, { encoding: 'utf8' });
-    const flint = output.split('\n')[0];
-    console.log('Flint is installed? -- ' + flint);
+    const flir = output.split('\n')[0];
+    console.log('Flir is installed? -- ' + flir);
 
-    if (flint.includes('FALSE')) {
-        // Offer to install flint
-        const install_flint = await positron.window.showSimpleModalDialogPrompt(
-            'Formalist extension is missing {flint} R package',
-            '{flint} R package is required. Do you want to install {flint}?',
+    if (flir.includes('FALSE')) {
+        // Offer to install flir
+        const install_flir = await positron.window.showSimpleModalDialogPrompt(
+            'Formalist extension is missing {flir} R package',
+            '{flir} R package is required. Do you want to install {flir}?',
             'Yes',
             'No'
         );
 
-        if (install_flint) {
+        if (install_flir) {
             await positron.runtime.executeCode(
-                'r', flint_install_command, false, false
+                'r', flir_install_command, false, false
             );
         }
     }
@@ -121,4 +121,4 @@ async function checkFlint() {
     await fs.unlink(tempFilePath);
 }
 
-module.exports = { checkR, checkFlint }; 
+module.exports = { checkR, checkFlir }; 
