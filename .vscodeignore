@@ -9,3 +9,5 @@ vsc-extension-quickstart.md
 **/.eslintrc.json
 **/.vscode-test.*
 *.vsix
+assets/**/*.gif
+
