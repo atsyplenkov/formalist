@@ -49,7 +49,7 @@ Alternatively, you can install the latest version from the [Releases](https://gi
 
 # Questions and Feature Requests
 
-There's a lot going on with the development of new features in `Formalst`. If you have any questions or something is not working, feel free to [open an issue](https://github.com/atsyplenkov/formalist/issues) or start a conversation on [BlueSky](https://bsky.app/profile/anatolii.nz).
+There's a lot going on with the development of new features in `Formalist`. If you have any questions or something is not working, feel free to [open an issue](https://github.com/atsyplenkov/formalist/issues) or start a conversation on [Mastodon](https://fosstodon.org/@atsyplenkov).
 
 
 # Contributions
