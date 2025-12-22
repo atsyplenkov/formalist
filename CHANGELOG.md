@@ -4,6 +4,10 @@ All notable changes to the "formalist" extension will be documented in this file
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.2.3] -- 2025-12-22
+
+- Nothing interesting, just updated dependencies
+
 ## [0.2.2] -- 2025-04-6
 
 - Update R dependencies (fix #5) 

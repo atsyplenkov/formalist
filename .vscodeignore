@@ -10,4 +10,5 @@ vsc-extension-quickstart.md
 **/.vscode-test.*
 *.vsix
 assets/**/*.gif
+assets/logo.svg
 
