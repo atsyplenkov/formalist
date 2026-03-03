@@ -136,10 +136,10 @@
   dependencies:
     undici-types "~6.19.2"
 
-"@types/vscode@^1.93.0":
-  version "1.107.0"
-  resolved "https://registry.yarnpkg.com/@types/vscode/-/vscode-1.107.0.tgz#82d76dec334896b4ce8373c6042549623e494105"
-  integrity sha512-XS8YE1jlyTIowP64+HoN30OlC1H9xqSlq1eoLZUgFEC8oUTO6euYZxti1xRiLSfZocs4qytTzR6xCBYtioQTCg==
+"@types/vscode@^1.106.0":
+  version "1.109.0"
+  resolved "https://registry.yarnpkg.com/@types/vscode/-/vscode-1.109.0.tgz#062dfddf5f7df9cf36038e900ae67421ae69091b"
+  integrity sha512-0Pf95rnwEIwDbmXGC08r0B4TQhAbsHQ5UyTIgVgoieDe4cOnf92usuR5dEczb6bTKEp7ziZH4TV1TRGPPCExtw==
 
 "@ungap/structured-clone@^1.2.0":
   version "1.2.1"
