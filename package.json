@@ -2,7 +2,7 @@
   "name": "formalist",
   "displayName": "formalist",
   "description": "Make R code properly formatted",
-  "version": "0.2.3",
+  "version": "0.2.3-1",
   "publisher": "atsyplenkov",
   "license": "MIT",
   "pricing": "Free",
@@ -20,7 +20,7 @@
   },
   "engines": {
     "positron": ">=2025.01.0",
-    "vscode": "1.106.0"
+    "vscode": "^1.106.0"
   },
   "categories": [
     "Other",
