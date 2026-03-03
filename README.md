@@ -1,8 +1,16 @@
-<!-- badges: start -->
-[![Open VSX Downloads](https://img.shields.io/open-vsx/dt/atsyplenkov/formalist?label=Open%20VSX%20downloads&color=c160ef)](https://open-vsx.org/extension/atsyplenkov/formalist) [![Deploy Extension](https://github.com/atsyplenkov/formalist/actions/workflows/publish-extensions.yml/badge.svg)](https://github.com/atsyplenkov/formalist/actions/workflows/publish-extensions.yml) ![GitHub License](https://img.shields.io/github/license/atsyplenkov/formalist?color=blue) [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://img.shields.io/badge/repo_status-WIP-yellow)](https://www.repostatus.org/#wip)
-<!-- badges: end -->
+<h1 align="center"><code>formalist</code> — a Positron extension</h1>
 
-# Formalist — Positron Extension
+<p align="center">
+    <a href="https://open-vsx.org/extension/atsyplenkov/formalist">
+        <img src="https://img.shields.io/open-vsx/dt/atsyplenkov/formalist?style=flat&labelColor=1e2c2e&color=007ACC&logo=Open%20VSX&logoColor=white&label=Open%20VSX%20downloads"></a>
+    <a href="https://github.com/atsyplenkov/formalist/actions/workflows/publish-extensions.yml">
+        <img src="https://img.shields.io/github/actions/workflow/status/atsyplenkov/formalist/publish-extensions.yml?style=flat&labelColor=1e2c2e&color=007ACC&logo=GitHub%20Actions&logoColor=white&label=deploy"></a>
+    <br>
+    <a href="https://github.com/atsyplenkov/formalist/blob/master/LICENSE.md">
+        <img src="https://img.shields.io/github/license/atsyplenkov/formalist?style=flat&labelColor=1e2c2e&color=007ACC&logo=GitHub&logoColor=white"></a>
+    <a href="https://www.repostatus.org/#wip">
+        <img src="https://img.shields.io/badge/repo_status-WIP-ffb200?style=flat&labelColor=1e2c2e&logo=readthedocs&logoColor=white"></a>
+</p>
 
 > [!IMPORTANT]
 > The extension is designed to work **ONLY** in
