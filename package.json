@@ -2,7 +2,7 @@
   "name": "formalist",
   "displayName": "formalist",
   "description": "Make R code properly formatted",
-  "version": "0.2.3-1",
+  "version": "0.2.4",
   "publisher": "atsyplenkov",
   "license": "MIT",
   "pricing": "Free",
@@ -99,6 +99,11 @@
     "eslint/minimatch/brace-expansion": "1.1.12",
     "@vscode/test-cli/minimatch/brace-expansion": "2.0.2",
     "@vscode/test-cli/glob/minimatch/brace-expansion": "2.0.2",
-    "mocha/glob/minimatch/brace-expansion": "2.0.2"
+    "mocha/glob/minimatch/brace-expansion": "2.0.2",
+    "**/mocha/minimatch": "9.0.7",
+    "**/mocha/glob/minimatch": "9.0.7",
+    "@vscode/test-cli/minimatch": "9.0.7",
+    "**/test-exclude/minimatch": "9.0.7",
+    "**/serialize-javascript": "7.0.3"
   }
 }
