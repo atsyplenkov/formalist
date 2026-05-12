@@ -84,6 +84,14 @@
           "items": {
             "type": "string"
           }
+        },
+        "formalist.ignoredFunctions": {
+          "type": "array",
+          "default": [],
+          "description": "R function names to ignore when making function calls explicit. Enter function names without quotes or parentheses, e.g., across, select.",
+          "items": {
+            "type": "string"
+          }
         }
       }
     }

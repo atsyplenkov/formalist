@@ -15,6 +15,10 @@ async function makeRFunctionCallExplicit() {
     const usePackagesExpr = ignoredPackages.length > 0
         ? `setdiff(pedant::current_packages(), c(${ignoredPackages.map(p => `"${p}"`).join(', ')}))`
         : 'pedant::current_packages()';
+    const ignoredFunctions = config.get('ignoredFunctions', []);
+    const ignoreFunctionsExpr = ignoredFunctions.length > 0
+        ? `, ignore_functions = c(${ignoredFunctions.map(f => `"${f}"`).join(', ')})`
+        : '';
 
     const editor = vscode.window.activeTextEditor;
     if (!editor) {
@@ -54,7 +58,7 @@ async function makeRFunctionCallExplicit() {
             formalistContent <-
                 readLines('${formalistPath}', encoding = 'UTF-8', warn = FALSE) |>
                 paste0(collapse = '\\n')
-            formalistContent <- pedant::add_double_colons(formalistContent, use_packages = ${usePackagesExpr})
+            formalistContent <- pedant::add_double_colons(formalistContent, use_packages = ${usePackagesExpr}${ignoreFunctionsExpr})
             writeLines(enc2utf8(formalistContent), con = '${formalistPath}')
             rm(formalistContent)
             },
