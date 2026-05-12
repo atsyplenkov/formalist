@@ -76,6 +76,14 @@
           "type": "boolean",
           "default": true,
           "description": "Show Formalist commands in the editor context (right-click) menu."
+        },
+        "formalist.ignoredPackages": {
+          "type": "array",
+          "default": [],
+          "description": "R packages to ignore when making function calls explicit. Enter package names without quotes, e.g., dplyr, stats.",
+          "items": {
+            "type": "string"
+          }
         }
       }
     }

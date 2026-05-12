@@ -10,6 +10,12 @@ async function makeRFunctionCallExplicit() {
     // Check if R is installed and offer to install it if not
     await checkR();
 
+    const config = vscode.workspace.getConfiguration('formalist');
+    const ignoredPackages = config.get('ignoredPackages', []);
+    const usePackagesExpr = ignoredPackages.length > 0
+        ? `setdiff(pedant::current_packages(), c(${ignoredPackages.map(p => `"${p}"`).join(', ')}))`
+        : 'pedant::current_packages()';
+
     const editor = vscode.window.activeTextEditor;
     if (!editor) {
         vscode.window.showErrorMessage("No active editor found!");
@@ -48,7 +54,7 @@ async function makeRFunctionCallExplicit() {
             formalistContent <-
                 readLines('${formalistPath}', encoding = 'UTF-8', warn = FALSE) |>
                 paste0(collapse = '\\n')
-            formalistContent <- pedant::add_double_colons(formalistContent)
+            formalistContent <- pedant::add_double_colons(formalistContent, use_packages = ${usePackagesExpr})
             writeLines(enc2utf8(formalistContent), con = '${formalistPath}')
             rm(formalistContent)
             },
