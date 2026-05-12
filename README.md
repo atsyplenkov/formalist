@@ -36,6 +36,22 @@
 > [`jarl`](https://github.com/etiennebacher/jarl), a next-generation R linter written in Rust.
 > Learn more at: https://github.com/etiennebacher/jarl
 
+# Configuration
+
+You can configure `Formalist` via the Positron settings (search for **"Formalist Configuration"**).
+
+## `formalist.showContextMenu`
+
+Controls whether Formalist commands appear in the editor's right-click context menu.
+
+## `formalist.ignoredPackages`
+
+A list of R package names that `pedant` will skip when making function calls explicit. Useful for packages you always attach and don't want to qualify. For example, adding `dplyr` means `select(mtcars, mpg)` stays as-is instead of becoming `dplyr::select(mtcars, mpg)`.
+
+## `formalist.ignoredFunctions`
+
+A list of R function names that `pedant` will leave unchanged, regardless of which package exports them. Useful for specific functions you want to keep implicit even if their package is being made explicit. For example, adding `plot` prevents it from being rewritten as `sf::plot(...)` or `sp::plot(...)`, or `terra::plot(...)`. You got it :)
+
 # Installation
 
 The extension is published on the [Open VSX Registry](https://open-vsx.org/extension/atsyplenkov/formalist): just click `Install` there or manually install it with:
