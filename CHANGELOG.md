@@ -10,6 +10,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - New configuration `formalist.ignoredPackages` to exclude specific R packages when making function calls explicit
 - Quarto and R Markdown support: context menu now appears in `.qmd` and `.Rmd` files (fix #7)
 - Deprecate `Fix All Lints` command. It will be removed in v0.4.0. The underlying `{flir}` package is no longer maintained; migrate to `{jarl}`: https://github.com/etiennebacher/jarl
+- Fix `pedant` installation flow (it was dead `else if`)
 
 ## [0.2.4] -- 2026-03-18
 

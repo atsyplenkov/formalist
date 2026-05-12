@@ -35,39 +35,45 @@ async function checkR() {
     console.log('Pedant is installed? -- ' + pedant);
 
     if (pedant.includes('FALSE')) {
-        // Offer to install pedant
-        const install_pedant = await positron.window.showSimpleModalDialogPrompt(
-            'Formalist extension is missing {pedant} R package',
-            '{pedant} R package is required. Do you want to install {pedant}?',
-            'Yes',
-            'No'
-        );
-
-        if (install_pedant && pak.includes('TRUE')) {
-            await positron.runtime.executeCode(
-                'r', pak_install_command, false, false
+        if (pak.includes('TRUE')) {
+            const install_pedant = await positron.window.showSimpleModalDialogPrompt(
+                'Formalist extension is missing {pedant} R package',
+                '{pedant} R package is required. Do you want to install {pedant}?',
+                'Yes',
+                'No'
             );
-        } else if (install_pedant && remotes.includes('TRUE')) {
-            await positron.runtime.executeCode(
-                'r', remotes_install_command, false, false
+            if (install_pedant) {
+                await positron.runtime.executeCode(
+                    'r', pak_install_command, false, false
+                );
+            }
+        } else if (remotes.includes('TRUE')) {
+            const install_pedant = await positron.window.showSimpleModalDialogPrompt(
+                'Formalist extension is missing {pedant} R package',
+                '{pedant} R package is required. Do you want to install {pedant}?',
+                'Yes',
+                'No'
             );
-        }
-    } else if (pedant.includes('FALSE') && remotes.includes('FALSE') && pak.includes('FALSE')) {
-        // Offer to install pedant
-        const install_pak = await positron.window.showSimpleModalDialogPrompt(
-            'Formalist extension is missing {pedant} R package',
-            '{pedant} R package is required. However, it cannot be installed as {pak} or {remotes} packages are missing too. Do you want to install {pak} and {pedant}?',
-            'Yes',
-            'No'
-        );
-
-        if (install_pak) {
-            await positron.runtime.executeCode(
-                'r', install_pak_package, false, false
+            if (install_pedant) {
+                await positron.runtime.executeCode(
+                    'r', remotes_install_command, false, false
+                );
+            }
+        } else {
+            const install_pak = await positron.window.showSimpleModalDialogPrompt(
+                'Formalist extension is missing {pedant} R package',
+                '{pedant} R package is required. However, it cannot be installed as {pak} or {remotes} packages are missing too. Do you want to install {pak} and {pedant}?',
+                'Yes',
+                'No'
             );
-            await positron.runtime.executeCode(
-                'r', pak_install_command, false, false
-            );
+            if (install_pak) {
+                await positron.runtime.executeCode(
+                    'r', install_pak_package, false, false
+                );
+                await positron.runtime.executeCode(
+                    'r', pak_install_command, false, false
+                );
+            }
         }
     }
 
