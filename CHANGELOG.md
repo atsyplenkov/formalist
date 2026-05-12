@@ -8,6 +8,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Security: upgrade `serialize-javascript` to 7.0.5, `flatted` to 3.4.2, `picomatch` to 2.3.2, and `brace-expansion` to 2.0.3
 - New configuration `formalist.ignoredPackages` to exclude specific R packages when making function calls explicit
+- New configuration `formalist.ignoredFunctions` to exclude specific R functions when making function calls explicit
 - Quarto and R Markdown support: context menu now appears in `.qmd` and `.Rmd` files (fix #7)
 - Deprecate `Fix All Lints` command. It will be removed in v0.4.0. The underlying `{flir}` package is no longer maintained; migrate to `{jarl}`: https://github.com/etiennebacher/jarl
 - Fix `pedant` installation flow (it was dead `else if`)
