@@ -38,17 +38,17 @@
 
 # Configuration
 
-You can configure `Formalist` via the Positron settings (search for **"Formalist Configuration"**).
+You can configure `Formalist` via the Positron settings (search for `@ext:atsyplenkov.formalist` in Settings).
 
-## `formalist.showContextMenu`
+### `formalist.showContextMenu`
 
 Controls whether Formalist commands appear in the editor's right-click context menu.
 
-## `formalist.ignoredPackages`
+### `formalist.ignoredPackages`
 
 A list of R package names that `pedant` will skip when making function calls explicit. Useful for packages you always attach and don't want to qualify. For example, adding `dplyr` means `select(mtcars, mpg)` stays as-is instead of becoming `dplyr::select(mtcars, mpg)`.
 
-## `formalist.ignoredFunctions`
+### `formalist.ignoredFunctions`
 
 A list of R function names that `pedant` will leave unchanged, regardless of which package exports them. Useful for specific functions you want to keep implicit even if their package is being made explicit. For example, adding `plot` prevents it from being rewritten as `sf::plot(...)` or `sp::plot(...)`, or `terra::plot(...)`. You got it :)
 
