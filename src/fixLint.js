@@ -6,6 +6,9 @@ const path = require('path');
 const { randomUUID } = require('crypto');
 const { checkR, checkFlir } = require('./checkR');
 
+// Deprecation warning state (once per session)
+let deprecationWarningShown = false;
+
 // Error constants
 const flir_ERRORS = {
     WRITE_FAILED: 'Error_002',
@@ -48,6 +51,20 @@ function generateRCommand(filepath) {
 }
 
 async function fixLint() {
+    if (!deprecationWarningShown) {
+        deprecationWarningShown = true;
+        vscode.window.showWarningMessage(
+            "The 'Fix All Lints' feature is deprecated and will be removed in v0.4.0. " +
+            "The underlying {flir} package is no longer maintained. " +
+            "We recommend migrating to {jarl}, a next-generation R linter written in Rust.",
+            "Learn More"
+        ).then(choice => {
+            if (choice === "Learn More") {
+                vscode.env.openExternal(vscode.Uri.parse("https://github.com/etiennebacher/jarl"));
+            }
+        });
+    }
+
     // Check if R is installed and offer to install it if not
     await checkFlir();
 

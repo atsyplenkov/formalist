@@ -30,12 +30,11 @@
 
 ## Fix Lints
 
-Another key feature of `Formalist` is its ability to detect and correct lints in your R code. The linting process is performed locally using the [`{flir}`](https://github.com/etiennebacher/flir) package, which must be installed in your R environment.
-
-![](https://github.com/atsyplenkov/formalist/raw/master/assets/formalist_flir.gif)
-
-> [!TIP]
-> The `{flir}` R package installs in your current environment, so, you can setup your custom lint rules by running `flir::setup_flir()` in your R console (read more [here](https://flir.etiennebacher.com/articles/adding_rules)).
+> [!WARNING]
+> **Deprecated:** The `Fix All Lints` feature is deprecated as of v0.3.0 and will be removed in v0.4.0.
+> The underlying R package `flir` is no longer actively maintained. We recommend migrating to
+> [`jarl`](https://github.com/etiennebacher/jarl), a next-generation R linter written in Rust.
+> Learn more at: https://github.com/etiennebacher/jarl
 
 # Installation
 
@@ -51,7 +50,14 @@ Alternatively, you can install the latest version from the [Releases](https://gi
 
 ## Dependencies
 
-`Formalist` depends on two R packages [`{pedant}`](https://github.com/wurli/pedant) and [`{flir}`](https://github.com/etiennebacher/flir). If your current environment is lacking either of them, you will be prompted to install them.
+`Formalist` depends on the R package [`{pedant}`](https://github.com/wurli/pedant) for making function calls explicit.
+
+> [!WARNING]
+> Support for the [`{flir}`](https://github.com/etiennebacher/flir) linting feature has been deprecated.
+> The `{flir}` package is no longer actively maintained. Please use [`{jarl}`](https://github.com/etiennebacher/jarl)
+> for linting instead — a next-generation R linter written in Rust.
+>
+> If `{flir}` is missing, you will still be prompted to install it until the feature is removed in v0.4.0.
 
 ![](https://github.com/atsyplenkov/formalist/raw/master/assets/formalist_install.gif)
 

@@ -41,7 +41,7 @@
       },
       {
         "command": "formalist.fixLint",
-        "title": "Fix All Lints",
+        "title": "(Deprecated) Fix All Lints",
         "category": "Formalist"
       }
     ],
