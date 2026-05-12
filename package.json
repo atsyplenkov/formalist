@@ -48,7 +48,7 @@
     "menus": {
       "editor/context": [
         {
-          "when": "editorHasSelection && config.formalist.showContextMenu && editorLangId == 'r'",
+          "when": "editorHasSelection && config.formalist.showContextMenu && (editorLangId == 'r' || editorLangId == 'quarto' || editorLangId == 'rmd')",
           "submenu": "formalist.submenu",
           "group": "navigation@1"
         }
