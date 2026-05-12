@@ -45,31 +45,12 @@ async function makeRFunctionCallExplicit() {
         console.log(`Wrote text to ${formalistPath}`);
 
         // Send the R command to the Positron Console
-        const rCommand = `
-        if (!file.exists('${formalistPath}')) {
-        # If file does not exist, write
-        # an error message to the path
-        writeLines('Error_002', con = '${formalistPath}')
-        } else {
-        tryCatch(
-            {
-            # Attempt to read the file, process it,
-            # and write the updated content
-            formalistContent <-
-                readLines('${formalistPath}', encoding = 'UTF-8', warn = FALSE) |>
-                paste0(collapse = '\\n')
-            formalistContent <- pedant::add_double_colons(formalistContent, use_packages = ${usePackagesExpr}${ignoreFunctionsExpr})
-            writeLines(enc2utf8(formalistContent), con = '${formalistPath}')
-            rm(formalistContent)
-            },
-            error = function(e) {
-            # If an error occurs during the formating process,
-            # write an error message
-            writeLines('Error_001', con = '${formalistPath}')
-            }
-        )
-        }
-        `;
+        const rTemplatePath = path.join(__dirname, 'makeExplicit.R');
+        const rTemplate = fs.readFileSync(rTemplatePath, 'utf-8');
+        const rCommand = rTemplate
+            .replace(/{{FORMALIST_PATH}}/g, formalistPath)
+            .replace('{{USE_PACKAGES_EXPR}}', usePackagesExpr)
+            .replace('{{IGNORE_FUNCTIONS_EXPR}}', ignoreFunctionsExpr);
         await positron.runtime.executeCode(
             'r', rCommand, false, false,
             positron.RuntimeCodeExecutionMode.Silent
