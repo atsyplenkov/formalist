@@ -4,7 +4,11 @@ All notable changes to the "formalist" extension will be documented in this file
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [0.2.4] -- 2025-03-18
+## [0.3.0] -- 2026-05-12
+
+- Security: upgrade `serialize-javascript` to 7.0.5, `flatted` to 3.4.2, `picomatch` to 2.3.2, and `brace-expansion` to 2.0.3
+
+## [0.2.4] -- 2026-03-18
 
 - Security: upgrade `minimatch` to 9.0.7 and `serialize-javascript` to 7.0.3 (RCE via RegExp.flags / Date.prototype.toISOString)
 
